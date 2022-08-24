@@ -8,7 +8,7 @@ from EndAfk.helpers import get_readable_time
 from EndAfk import SUDOERS
 from EndAfk.AlphaDB import is_blocked
 
-alpha = "https://te.legra.ph/file/6969473800d2a8796cfd1.jpg"
+alpha = START_IMG if START_IMG else "https://te.legra.ph/file/6969473800d2a8796cfd1.jpg"
 
 photo = "https://te.legra.ph/file/834b1444f48d090886fef.jpg"
 
