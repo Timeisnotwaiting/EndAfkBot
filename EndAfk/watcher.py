@@ -252,7 +252,7 @@ async def welcome(_, message: Message):
         try:
             if member.id == 5561276442:
                 return await message.reply_photo(NEW_CHAT_PIC,
-                    caption=f"Thanks for having me in {message.chat.title}\n\n{men} is alive.\n\nFor queries : @Timeisnotwaiting"
+                    caption=f"Thanks for having me in {message.chat.title}\n\n{men} is alive.\n\nFor queries : {OWNER_USERNAME}"
                 )
         except:
             return
