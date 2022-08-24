@@ -19,7 +19,7 @@ async def start(_, message: Message):
         return await message.reply("you've been blocked try: ask @Timeisnotwaiting")
     first_name = message.from_user.first_name
     await message.reply_photo(alpha,
-       caption=f"Hey {first_name}! I'm Afk of @THE_END_NETWORK. \n\nTry: replying afk to some media else stickers to make it more reasonable !\n\n @Timeisnotwaiting")
+       caption=f"Hey {first_name}! I'm Afk of {OWNER_USERNAME}. \n\nTry: replying afk to some media else stickers to make it more reasonable !\n\n ")
 
 
 @Client.on_message(filters.command("ping") & filters.user(SUDOERS))
