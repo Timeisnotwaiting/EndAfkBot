@@ -2,7 +2,7 @@ import time
 
 from pyrogram import filters, Client
 from pyrogram.types import Message
-
+from config import OWNER_USERNAME, START_IMG
 from EndAfk import app, boot, botname
 from EndAfk.helpers import get_readable_time
 from EndAfk import SUDOERS
