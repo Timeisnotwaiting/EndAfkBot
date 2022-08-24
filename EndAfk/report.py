@@ -1,6 +1,7 @@
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from EndAfk.AlphaDB.blocked import is_blocked
+from config import OWNER_USERNAME
 
 @Client.on_message(filters.command("report"))
 async def report(_, m):
