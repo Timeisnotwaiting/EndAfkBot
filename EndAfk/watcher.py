@@ -1,6 +1,6 @@
 import re
 import time
-from config import NEW_CHAT_IMG as NEW_CHAT_PIC
+from config import NEW_CHAT_IMG as NEW_CHAT_PIC, OWNER_USERNAME
 from pyrogram import filters, Client
 from pyrogram.types import Message
 
