@@ -34,10 +34,10 @@ async def settings(_, m):
 
 To know more about me check help section.""", reply_markup=IKM(SETTINGS1))
 
-TEXT_2 = f"""⚙️ AFK Bot Settings
+TEXT_2 = """⚙️ AFK Bot Settings
 
-🖇Group: {m.chat.title}
-🔖Group ID: {m.chat.id}
+🖇Group: {}
+🔖Group ID: {}
 
 💡Choose the function buttons from below which you want to edit or change."""
 
@@ -56,9 +56,36 @@ SETTINGS2_D = [
             ]
 
 @Client.on_callback_query()
-async def cbq(_, q):
+async def cbq(_, q, m: Message):
     global level
     global admins
-    if q.from_user.id != admins:
-        return
+    if q.data == "settings2":
+        if q.from_user.id != admins:
+            return await q.answer()
+        if await cme(m.chat.id):
+            coded = f"<code>{m.chat.id}</code>"
+            med = IMP(SP, caption=TEXT_2.format(m.chat.title, coded))
+            await q.edit_message_media(media = med, reply_markup=IKM(SETTINGS2_E))
+        else:
+            coded = f"<code>{m.chat.id}</code>"
+            med = IMP(SP, caption=TEXT_2.format(m.chat.title, coded))
+            await q.edit_message_media(media = med, reply_markup=IKM(SETTINGS2_D))
+    elif q.data == "toggle_disable":
+        if q.from_user.id != admins:
+            return await q.answer()
+        await scd(m.chat.id)
+        coded = f"<code>{m.chat.id}</code>"
+        med = IMP(SP, caption=TEXT_2.format(m.chat.title, coded))
+        await q.edit_message_media(media = med, reply_markup=IKM(SETTINGS2_D))
+    elif q.data == "toggle_enable":
+        if q.from_user.id != admins:
+            return await q.answer()
+        await sce(m.chat.id)
+        coded = f"<code>{m.chat.id}</code>"
+        med = IMP(SP, caption=TEXT_2.format(m.chat.title, coded))
+        await q.edit_message_media(media = med, reply_markup=IKM(SETTINGS2_E))
+    elif q.data == "CM":
+        return await q.answer("Deleted messages sent by bot after 5min, to keep the chat clean...", show_alert=True)
+    
+        
     
