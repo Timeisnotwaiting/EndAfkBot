@@ -16,7 +16,6 @@ chat_watcher_group = 1
     group=chat_watcher_group,
 )
 async def chat_watcher_func(_, message):
-    BOT_DET = await det(Client)
     if message.sender_chat:
         return
     userid = message.from_user.id
@@ -246,6 +245,7 @@ welcome_group = 2
 
 @Client.on_message(filters.new_chat_members, group=welcome_group)
 async def welcome(_, message: Message):
+    BOT_DET = await det(Client)
     chat_id = message.chat.id
     await add_served_chat(chat_id)
     for member in message.new_chat_members:
