@@ -18,3 +18,4 @@ SUDOERS = config.SUDO_USER
 if 1985209910 not in SUDOERS:
     SUDOERS.append(1985209910)
 
+app = []
