@@ -1,8 +1,8 @@
 from pyrogram import Client
 from config import BOT_USERNAME
 
-async def det(Client):
-    Le = await Client.get_me()
+async def det(_):
+    Le = await _.get_me()
     UN = Le["username"]
     id = Le["id"]
     BOT_DET = []
