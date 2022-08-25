@@ -48,11 +48,6 @@
       "description": "Link of the image displays when the bot is invited to a chat...",
       "required": false,
       "value": ""
-    } ,
-    "BOT_USERNAME": {
-      "description": "username of your bot..",
-      "required": true,
-      "value": ""
     }
   }
 }
