@@ -3,9 +3,8 @@ from pyrogram.types import Message
 from EndAfk import SUDOERS
 from .det import det
 
-BOT_DET = await det(Alpha)
 
-@Alpha.on_message(filters.command(f"leave@{BOT_DET[0]}") & filters.user(SUDOERS))
+@Alpha.on_message(filters.command(f"leave") & filters.user(SUDOERS))
 async def leave(_, m):
     if len(m.command) == 2:
         ch_id = int(m.text.split()[1])
