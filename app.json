@@ -1,6 +1,6 @@
 {
-  "name": "String Generator by Alpha",
-  "description": "Telegram bot to generate Pyrogram & Telethon StringSession Made By Alpha",
+  "name": "pyrogram based AFK bot !",
+  "description": "Afk bot with more features by @Timeisnotwaiting",
   "logo": "https://te.legra.ph/file/ac72a0208034b15f04c18.jpg",
   "keywords": [
     "telegram",
@@ -27,35 +27,45 @@
    ],
   "repository": "https://github.com/theend-alpha/StringBot",
   "env": {
-    "ENVIRONMENT": {
-      "description": "Don't change ANYTHING.",
-      "required": true,
-      "value": "ANYTHING"
-    },
     "API_ID": {
       "description": "Get this value from my.telegram.org.",
       "required": true,
-      "value": "14151343"
+      "value": ""
     },
     "API_HASH": {
       "description": "Get this value from my.telegram.org.",
       "required": true,
-      "value": "9330f17086496c4580bdc8f8b24ec364"
+      "value": ""
     },
     "BOT_TOKEN": {
       "description": "Obtain a Telegram bot token by contacting @BotFather",
       "required": true,
-      "value": "5230754379:AAGSQvMthIM8Bdn07kuaaauI26VKbyrJV88"
+      "value": ""
     },
     "MONGO_DB_URI": {
-      "description": "omfoo db url",
+      "description": "obtain from mongodb.com",
       "required": true,
-      "value": "mongodb+srv://keshavalpha:keshavalpha@cluster0.htiys.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+      "value": ""
     },
     "SUDO_USER": {
-      "description": "omfoo",
+      "description": "Split if more than 1",
       "required": true,
-      "value": "1927705508 1300561364"
+      "value": ""
+    },
+    "OWNER_USERNAME": {
+      "description": "Enter the username of owner of bot !",
+      "required": false,
+      "value": ""
+    },
+    "START_IMG": {
+      "description": "Link of the image which displays when a user starts the bot..",
+      "required": false,
+      "value": ""
+    },
+    "NEW_CHAT_IMG": {
+      "description": "Link of the image displays when the bot is invited to a chat...",
+      "required": false,
+      "value": ""
     }
   }
 }
