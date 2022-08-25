@@ -2,7 +2,10 @@
   "name": "pyrogram based AFK bot !",
   "logo": "https://te.legra.ph/file/ac72a0208034b15f04c18.jpg",
   "description": "Afk bot with more features by @Timeisnotwaiting",
-  "keywords": ["music", "voicechat", "telegram", "fallen"],
+  "keywords": ["telegram",
+    "bot",
+    "python",
+    "pyrogram"],
   "repository": "https://github.com/AnonymousR1025/FallenMusic",
   "stack": "container",
   "env": 
