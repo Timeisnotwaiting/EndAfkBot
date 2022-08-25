@@ -1,7 +1,8 @@
 from pyrogram import Client, filters
-from pyrogram.types import Message, CallbackQuery, InlineKeyboardMarkup as IKM, InlineKeyboardButton as IKB
+from pyrogram.types import Message, CallbackQuery, InlineKeyboardMarkup as IKM, InlineKeyboardButton as IKB, InputMediaPhoto as IMP
 from .det import det
 from config import OWNER_USERNAME
+import time
 
 level = None
 
@@ -11,9 +12,21 @@ SETTINGS1 = [
             ]
             ]
 
+async def get_admin_list(_, m):
+    ADMINS = []
+    async for member in _.iter_chat_members(m.chat.id, filters="administrators"):
+        ADMINS.append(member.user.id)
+        return ADMINS
+        
+ admins = None 
+
 @Client.on_message(filters.command("settings") & filters.group)
 async def settings(_, m):
+    global admins
     global level
+    admins = await get_admin_list(_, m)
+    if not m.from_user.id in admins:
+        return 
     level = m.from_user.id
     d = await det(_)
     name = (await _.get_users(d[1])).first_name
@@ -44,5 +57,8 @@ SETTINGS2_D = [
 
 @Client.on_callback_query()
 async def cbq(_, q):
-    
+    global level
+    global admins
+    if q.from_user.id != admins:
+        return
     
