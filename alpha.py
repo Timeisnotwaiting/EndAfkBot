@@ -20,9 +20,10 @@ app = Client(
 )
 
 app.start()
-cli = app.get_me()
 BOT_DET = []
-BOT_DET.append(cli.username)
-BOT_DET.append(cli.id)
+UN = app.get_me().username
+ID = app.get_me().id
+BOT_DET.append(UN)
+BOT_DET.append(ID)
 print(f"@{cli.username} started successfully...")
 
