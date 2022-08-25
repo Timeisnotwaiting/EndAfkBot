@@ -1,5 +1,5 @@
 import time
-
+from .help import help
 from pyrogram import filters, Client
 from pyrogram.types import Message
 from config import OWNER_USERNAME, START_IMG
@@ -33,3 +33,7 @@ async def ping(_, message: Message):
     await _.send_message(
        message.chat.id,
        f"End is alive. \n\n Uptime - {Uptime}")
+
+@Client.on_message(filters.command("help"))
+async def _help(_, m):
+    await help(_, m)
