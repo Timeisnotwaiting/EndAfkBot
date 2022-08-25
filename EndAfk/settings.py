@@ -15,7 +15,7 @@ SETTINGS1 = [
 
 async def get_admin_list(_, m):
     ADMINS = []
-    async for member in _.iter_chat_members(m.chat.id, filters="administrators"):
+    async for member in _.iter_chat_members(m.chat.id, filter="administrators"):
         ADMINS.append(member.user.id)
         return ADMINS
         
