@@ -23,3 +23,5 @@ if not OWNER_USERNAME[0] == "@":
 START_IMG = getenv("START_IMG")
 
 NEW_CHAT_IMG = getenv("NEW_CHAT_IMG", "https://te.legra.ph/file/bb228a198c41e90761d96.jpg")
+
+BOT_USERNAME = getenv("BOT_USERNAME", "@EndAfkBot")
