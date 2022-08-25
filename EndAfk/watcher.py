@@ -245,7 +245,7 @@ welcome_group = 2
 
 @Client.on_message(filters.new_chat_members, group=welcome_group)
 async def welcome(_, message: Message):
-    BOT_DET = await det(Client)
+    BOT_DET = await det(_)
     chat_id = message.chat.id
     await add_served_chat(chat_id)
     for member in message.new_chat_members:
