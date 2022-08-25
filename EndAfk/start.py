@@ -1,13 +1,14 @@
 import time
 from .help import help
 from pyrogram import filters, Client
-from pyrogram.types import Message
+from pyrogram.types import Message, InlineKeyboardButton as IKB, InlineKeyboardMarkup as IKM
 from config import OWNER_USERNAME, START_IMG
 from EndAfk import app, boot, botname
 from EndAfk.helpers import get_readable_time
 from EndAfk import SUDOERS
 from EndAfk.AlphaDB import is_blocked
 from .det import det
+
 
 alpha = START_IMG if START_IMG else "https://te.legra.ph/file/6969473800d2a8796cfd1.jpg"
 
@@ -20,10 +21,17 @@ async def start(_, message: Message):
         return await message.reply(f"you've been blocked try: ask {OWNER_USERNAME}")
     d = await det(_)
     name = (await _.get_users(d[1])).first_name
+
+    START_MARKUP = [
+    [
+    IKB("➕ Add to your chat ➕", url=f"t.me/{d[0]}?startgroup=true")
+    ]
+    ]
+
     await message.reply_photo(alpha,
        caption=f"""Hello! My name is {name}.
 
-To know more about me check help section by /help.""")
+To know more about me check help section by /help.""", reply_markup=IKM(START_MARKUP))
 
 
 @Client.on_message(filters.command("ping") & filters.user(SUDOERS))
