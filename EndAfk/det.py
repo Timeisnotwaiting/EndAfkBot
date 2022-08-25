@@ -1,4 +1,5 @@
 from pyrogram import Client
+from config import BOT_USERNAME
 
 async def det(Client):
     id = (await Client.get_users(BOT_USERNAME)).id
