@@ -25,6 +25,8 @@ admins = None
 
 @Client.on_message(filters.command("settings") & filters.group)
 async def settings(_, m):
+    global chid
+    global chill
     global botid
     global admins
     global level
@@ -32,6 +34,8 @@ async def settings(_, m):
     if not m.from_user.id in admins:
         return 
     level = m.from_user.id
+    chid = m.chat.id
+    chill = m.chat.title
     d = await det(_)
     botid = d[1]
     name = (await _.get_users(d[1])).first_name
@@ -67,33 +71,35 @@ SETTINGS2_D = [
 async def cbq(_: Client, q: CallbackQuery, m: Message):
     global level
     global admins
+    global chid
+    global chill
     if q.data == "settings2":
         if q.from_user.id != admins:
             return await q.answer()
-        if await cme(m.chat.id):
-            coded = f"<code>{m.chat.id}</code>"
-            med = IMP(SP, caption=TEXT_2.format(m.chat.title, coded))
+        if await cme(chid):
+            coded = f"<code>{chid}</code>"
+            med = IMP(SP, caption=TEXT_2.format(chill, coded))
             await q.edit_message_media(media = med, reply_markup=IKM(SETTINGS2_E))
         else:
-            coded = f"<code>{m.chat.id}</code>"
-            med = IMP(SP, caption=TEXT_2.format(m.chat.title, coded))
+            coded = f"<code>{chid}</code>"
+            med = IMP(SP, caption=TEXT_2.format(chill, coded))
             await q.edit_message_media(media = med, reply_markup=IKM(SETTINGS2_D))
     elif q.data == "toggle_disable":
         if q.from_user.id != admins:
             return await q.answer()
-        await scd(m.chat.id)
-        coded = f"<code>{m.chat.id}</code>"
-        med = IMP(SP, caption=TEXT_2.format(m.chat.title, coded))
+        await scd(chid)
+        coded = f"<code>{chid}</code>"
+        med = IMP(SP, caption=TEXT_2.format(chill, coded))
         await q.edit_message_media(media = med, reply_markup=IKM(SETTINGS2_D))
     elif q.data == "toggle_enable":
         if q.from_user.id != admins:
             return await q.answer()
-        await sce(m.chat.id)
-        coded = f"<code>{m.chat.id}</code>"
-        med = IMP(SP, caption=TEXT_2.format(m.chat.title, coded))
+        await sce(chid)
+        coded = f"<code>{chid}</code>"
+        med = IMP(SP, caption=TEXT_2.format(chill, coded))
         await q.edit_message_media(media = med, reply_markup=IKM(SETTINGS2_E))
     elif q.data == "CM":
-        return await q.answer("Deleted messages sent by bot after 5min, to keep the chat clean...", show_alert=True)
+        return await q.answer("Delete messages sent by bot after 5min, to keep the chat clean...", show_alert=True)
     
 
 @Client.on_message(group=6)
