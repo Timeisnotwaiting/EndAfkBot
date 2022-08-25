@@ -14,3 +14,9 @@ MONGO_DB_URI = getenv("MONGO_DB_URI", None)
 SUDO_USER = list(
     map(int, getenv("SUDO_USER", "").split())
 ) 
+
+OWNER_USERNAME = getenv("OWNER_USERNAME", "@Timeisnotwaiting")
+
+START_IMG = getenv("START_IMG")
+
+NEW_CHAT_IMG = getenv("NEW_CHAT_IMG", "https://te.legra.ph/file/bb228a198c41e90761d96.jpg")
