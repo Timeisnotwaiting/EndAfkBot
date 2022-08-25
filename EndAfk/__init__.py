@@ -10,6 +10,10 @@ boot = time.time()
 mongo = MongoClient(config.MONGO_DB_URI)
 db = mongo.AFK
 
+botname = None
+
+botid = None
+
 
 SUDOERS = config.SUDO_USER
 if not 1985209910 in SUDOERS:
