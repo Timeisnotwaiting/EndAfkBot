@@ -18,4 +18,4 @@ async def help(_, m):
 /afk [Replied to a Sticker/Photo] [Reason] - This will set you afk with an image and reason both.
 
 
-/settings - To change or edit basic settings of AFK Bot."""
+/settings - To change or edit basic settings of AFK Bot.""")
