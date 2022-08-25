@@ -8,3 +8,6 @@ services:
       - BOT_TOKEN=${BOT_TOKEN}
       - MONGO_DB_URI=${MONGO_DB_URI}
       - SUDO_USER=${SUDO_USER}
+      - OWNER_USERNAME=${OWNER_USERNAME}
+      - START_IMG=${START_IMG}
+      - NEW_CHAT_IMG=${NEW_CHAT_IMG}
