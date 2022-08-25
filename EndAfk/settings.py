@@ -33,9 +33,12 @@ async def settings(_, m):
     d = await det(_)
     botid = d[1]
     name = (await _.get_users(d[1])).first_name
-    await m.reply_photo("https://te.legra.ph/file/7637e88a7367abb6336d5.jpg", caption=f"""Hello! My name is {name}
+    try:
+        await m.reply_photo("https://te.legra.ph/file/7637e88a7367abb6336d5.jpg", caption=f"""Hello! My name is {name}
 
 To know more about me check help section.""", reply_markup=IKM(SETTINGS1))
+    except Exception as e:
+        await m.reply(e)
 
 TEXT_2 = """⚙️ AFK Bot Settings
 
