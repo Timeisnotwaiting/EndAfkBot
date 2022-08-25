@@ -20,7 +20,7 @@ app = Client(
 )
 
 await app.start()
-cli = await app.get_me()
+cli = app.get_me()
 BOT_DET = []
 BOT_DET.append(cli.username)
 BOT_DET.append(cli.id)
