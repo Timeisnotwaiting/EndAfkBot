@@ -1,8 +1,9 @@
 from pyrogram import Client as Alpha, filters
 from pyrogram.types import Message
 from EndAfk import SUDOERS
+from alpha import BOT_DET
 
-@Alpha.on_message(filters.command("leave") & filters.user(SUDOERS))
+@Alpha.on_message(filters.command(f"leave@{BOT_DET[0]}") & filters.user(SUDOERS))
 async def leave(_, m):
     if len(m.command) == 2:
         ch_id = int(m.text.split()[1])
