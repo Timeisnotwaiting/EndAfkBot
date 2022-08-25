@@ -8,6 +8,14 @@
 
 --[ALL VARS](okteto-compose.yml)--
 
+## Cast
+
+- [DEv](https://t.me/xDevesh) & [YashuAlpha](https://t.me/Timeisnotwaiting)
+
+- If you are interested Join our [Channel](https://t.me/THE_END_NETWORK)
+
+- For queries and problems ping [YashuAlpha](https://t.me/Timeisnotwaiting)
+
 
 
 ## Deploy 
