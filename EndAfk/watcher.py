@@ -3,7 +3,7 @@ import time
 from config import NEW_CHAT_IMG as NEW_CHAT_PIC, OWNER_USERNAME
 from pyrogram import filters, Client
 from pyrogram.types import Message
-
+from alpha import BOT_DET
 from EndAfk import app, botid, botname
 from EndAfk.AlphaDB import add_served_chat, is_afk, remove_afk
 from EndAfk.helpers import get_readable_time
@@ -247,10 +247,10 @@ welcome_group = 2
 async def welcome(_, message: Message):
     chat_id = message.chat.id
     await add_served_chat(chat_id)
-    men = (await _.get_users(5561276442)).mention
     for member in message.new_chat_members:
         try:
-            if member.id == 5561276442:
+            if member.id == BOT_DET[1]:
+                men = (await _.get_users(BOT_DET[1])).mention
                 return await message.reply_photo(NEW_CHAT_PIC,
                     caption=f"Thanks for having me in {message.chat.title}\n\n{men} is alive.\n\nFor queries : {OWNER_USERNAME}"
                 )
