@@ -13,7 +13,6 @@ from EndAfk.AlphaDB import is_blocked
 
 @Client.on_message(filters.command(["afk"]))
 async def active_afk(_, message: Message):
-    devil = random.choice(ALL)
     blocked = await is_blocked(message.from_user.id)
     if blocked:
         return
@@ -24,8 +23,8 @@ async def active_afk(_, message: Message):
         await message.delete()
     except:
         pass
-    await message.reply_photo(
-        devil, caption=f"{message.from_user.first_name} is now away from keyboard ...!"
+    await message.reply(
+       f"{message.from_user.first_name} is now away from keyboard ...!"
     )
 
     verifier, reasondb = await is_afk(user_id)
