@@ -19,6 +19,7 @@ app = Client(
     plugins=dict(root="EndAfk"),
 )
 
+BOT_DET = []
 
 # Run Bot
 if __name__ == "__main__":
@@ -29,6 +30,10 @@ if __name__ == "__main__":
     except AccessTokenInvalid:
         raise Exception("Your BOT_TOKEN is not valid,Bot token Bruhh!")
     uname = app.get_me().username
+    bot_id = app.get_me().id
+    BOT_DET.append(uname)
+    BOT_DET.append(bot_id)
+    
     print(f"@{uname} Started Successfully visit other repositories of Alpha!")
     idle()
     app.stop()
