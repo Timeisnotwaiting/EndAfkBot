@@ -9,7 +9,7 @@ botid = None
 
 SETTINGS1 = [
             [IKB(" 🤵 Owner", url=f"t.me/{OWNER_USERNAME[1:]}"),
-             IKB(" 🛠 Settings", data="settings2"),
+             IKB(" 🛠 Settings", callback_data="settings2"),
             ]
             ]
 
@@ -46,15 +46,15 @@ TEXT_2 = """⚙️ AFK Bot Settings
 
 SETTINGS2_E = [
             [
-             IKB("🔁 Clean Mode", data="CM"),
-             IKB("✅ Enabled", data="toggle_disbale"),
+             IKB("🔁 Clean Mode", callback_data="CM"),
+             IKB("✅ Enabled", callback_data="toggle_disbale"),
             ]
             ]
 
 SETTINGS2_D = [
             [
-             IKB("🔁 Clean Mode", data="CM"),
-             IKB("❌ Disabled", data="toggle_enable"),
+             IKB("🔁 Clean Mode", callback_data="CM"),
+             IKB("❌ Disabled", callback_data="toggle_enable"),
             ]
             ]
 
