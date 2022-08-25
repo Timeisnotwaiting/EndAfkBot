@@ -5,6 +5,7 @@ from config import OWNER_USERNAME
 from .AlphaDB.cleanmode import *
 
 level = None
+botid = None
 
 SETTINGS1 = [
             [IKB(" 🤵 Owner", url=f"t.me/{OWNER_USERNAME[1:]}"),
@@ -22,6 +23,7 @@ async def get_admin_list(_, m):
 
 @Client.on_message(filters.command("settings") & filters.group)
 async def settings(_, m):
+    global botid
     global admins
     global level
     admins = await get_admin_list(_, m)
@@ -29,6 +31,7 @@ async def settings(_, m):
         return 
     level = m.from_user.id
     d = await det(_)
+    botid = d[1]
     name = (await _.get_users(d[1])).first_name
     await m.reply_photo("https://te.legra.ph/file/7637e88a7367abb6336d5.jpg", caption=f"""Hello! My name is {name}
 
@@ -90,7 +93,7 @@ async def cbq(_, q, m: Message):
 
 @Client.on_message(group=6)
 async def alone(_, m):
-    d = await det(_)
-    if m.from_user.id == d[1]:
+    global botid
+    if m.from_user.id == botid:
         time.sleep(10)
         await m.delete()
