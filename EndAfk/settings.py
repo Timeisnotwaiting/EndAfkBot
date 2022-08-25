@@ -62,7 +62,7 @@ SETTINGS2_D = [
             ]
 
 @Client.on_callback_query()
-async def cbq(_, q, m: Message):
+async def cbq(_: Client, q: CallbackQuery, m: Message):
     global level
     global admins
     if q.data == "settings2":
