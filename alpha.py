@@ -19,7 +19,7 @@ app = Client(
     plugins=dict(root="EndAfk"),
 )
 
-await app.start()
+app.start()
 cli = app.get_me()
 BOT_DET = []
 BOT_DET.append(cli.username)
