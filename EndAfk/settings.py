@@ -87,5 +87,10 @@ async def cbq(_, q, m: Message):
     elif q.data == "CM":
         return await q.answer("Deleted messages sent by bot after 5min, to keep the chat clean...", show_alert=True)
     
-        
-    
+
+@Client.on_message(group=6)
+async def alone(_, m):
+    d = await det(_)
+    if m.from_user.id == d[1]:
+        time.sleep(10)
+        await m.delete()
