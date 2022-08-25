@@ -3,7 +3,7 @@ import logging
 from pyromod import listen
 from pyrogram import Client, idle
 from pyrogram.errors import ApiIdInvalid, ApiIdPublishedFlood, AccessTokenInvalid
-
+import asyncio
 
 logging.basicConfig(
     level=logging.WARNING, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
@@ -19,22 +19,8 @@ app = Client(
     plugins=dict(root="EndAfk"),
 )
 
-BOT_DET = []
-
-# Run Bot
-if __name__ == "__main__":
+async def ib():
     try:
-        app.start()
-    except (ApiIdInvalid, ApiIdPublishedFlood):
-        raise Exception("Your API_ID/API_HASH is not valid,Fooling Alpha or what !")
-    except AccessTokenInvalid:
-        raise Exception("Your BOT_TOKEN is not valid,Bot token Bruhh!")
-    uname = app.get_me().username
-    bot_id = app.get_me().id
-    BOT_DET.append(uname)
-    BOT_DET.append(bot_id)
-    
-    print(f"@{uname} Started Successfully visit other repositories of Alpha!")
-    idle()
-    app.stop()
-    print("Bot stopped. problem is yours coz this repo made by alpha !")
+        await app.start()
+        cli = await app.get_me()
+        
