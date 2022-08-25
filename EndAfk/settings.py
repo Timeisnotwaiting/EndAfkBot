@@ -2,7 +2,7 @@ from pyrogram import Client, filters
 from pyrogram.types import Message, CallbackQuery, InlineKeyboardMarkup as IKM, InlineKeyboardButton as IKB, InputMediaPhoto as IMP
 from .det import det
 from config import OWNER_USERNAME
-import time
+from .AlphaDB.cleanmode import *
 
 level = None
 
