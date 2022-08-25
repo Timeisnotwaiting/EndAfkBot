@@ -10,13 +10,13 @@ from EndAfk.helpers import get_readable_time
 
 chat_watcher_group = 1
 
-BOT_DET = await det(Client)
 
 @Client.on_message(
     ~filters.edited & ~filters.me & ~filters.bot & ~filters.via_bot,
     group=chat_watcher_group,
 )
 async def chat_watcher_func(_, message):
+    BOT_DET = await det(Client)
     if message.sender_chat:
         return
     userid = message.from_user.id
