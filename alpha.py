@@ -21,8 +21,9 @@ app = Client(
 
 app.start()
 BOT_DET = []
-UN = app.get_me().username
-ID = app.get_me().id
+cli = app.get_me()
+UN = cli.username
+ID = cli.id
 BOT_DET.append(UN)
 BOT_DET.append(ID)
 idle()
