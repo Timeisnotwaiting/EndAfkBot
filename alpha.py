@@ -25,5 +25,6 @@ UN = app.get_me().username
 ID = app.get_me().id
 BOT_DET.append(UN)
 BOT_DET.append(ID)
-print(f"@{cli.username} started successfully...")
+idle()
+print(f"@{UN} started successfully...")
 
