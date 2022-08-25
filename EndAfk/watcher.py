@@ -3,13 +3,14 @@ import time
 from config import NEW_CHAT_IMG as NEW_CHAT_PIC, OWNER_USERNAME
 from pyrogram import filters, Client
 from pyrogram.types import Message
-from .det import BOT_DET
+from .det import det
 from EndAfk import app, botid, botname
 from EndAfk.AlphaDB import add_served_chat, is_afk, remove_afk
 from EndAfk.helpers import get_readable_time
 
 chat_watcher_group = 1
 
+BOT_DET = await det(Client)
 
 @Client.on_message(
     ~filters.edited & ~filters.me & ~filters.bot & ~filters.via_bot,
