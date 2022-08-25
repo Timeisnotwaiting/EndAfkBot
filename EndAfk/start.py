@@ -18,8 +18,8 @@ async def start(_, message: Message):
     blocked = await is_blocked(message.from_user.id)
     if blocked:
         return await message.reply(f"you've been blocked try: ask {OWNER_USERNAME}")
-    getter = await _.get_me()
-    name = getter.first_name
+    d = await det(_)
+    name = (await _.get_users(d[1])).first_name
     await message.reply_photo(alpha,
        caption=f"""Hello! My name is {name}.
 
