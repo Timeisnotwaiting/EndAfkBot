@@ -2,7 +2,7 @@
 
 ## VARIABLES
 
-- API_ID & API_HASH ---> [here](www.telegram.org)
+- API_ID & API_HASH ---> [here](https://telegram.org/)
 
 ## Deploy 
 
