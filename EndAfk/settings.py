@@ -6,6 +6,8 @@ from .AlphaDB.cleanmode import *
 
 level = None
 botid = None
+chid = None
+chill = None
 
 SETTINGS1 = [
             [IKB(" 🤵 Owner", url=f"t.me/{OWNER_USERNAME[1:]}"),
