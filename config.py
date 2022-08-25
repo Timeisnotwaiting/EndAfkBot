@@ -17,6 +17,9 @@ SUDO_USER = list(
 
 OWNER_USERNAME = getenv("OWNER_USERNAME", "@Timeisnotwaiting")
 
+if not OWNER_USERNAME[0] == "@":
+    OWNER_USERNAME = "@" + OWNER_USERNAME
+
 START_IMG = getenv("START_IMG")
 
 NEW_CHAT_IMG = getenv("NEW_CHAT_IMG", "https://te.legra.ph/file/bb228a198c41e90761d96.jpg")
