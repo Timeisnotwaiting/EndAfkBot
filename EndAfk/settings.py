@@ -19,7 +19,7 @@ async def get_admin_list(_, m):
         ADMINS.append(member.user.id)
         return ADMINS
         
- admins = None 
+admins = None 
 
 @Client.on_message(filters.command("settings") & filters.group)
 async def settings(_, m):
