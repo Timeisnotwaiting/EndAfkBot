@@ -3,6 +3,7 @@ from pyrogram.types import Message, CallbackQuery, InlineKeyboardMarkup as IKM, 
 from .det import det
 from config import OWNER_USERNAME
 
+level = None
 
 SETTINGS1 = [
             [IKB(" 🤵 Owner", url=f"t.me/{OWNER_USERNAME[1:]}"),
@@ -12,6 +13,8 @@ SETTINGS1 = [
 
 @Client.on_message(filters.command("settings") & filters.group)
 async def settings(_, m):
+    global level
+    level = m.from_user.id
     d = await det(_)
     name = (await _.get_users(d[1])).first_name
     await m.reply_photo("https://te.legra.ph/file/7637e88a7367abb6336d5.jpg", caption=f"""Hello! My name is {name}
@@ -38,3 +41,8 @@ SETTINGS2_D = [
              IKB("❌ Disabled", data="toggle_enable"),
             ]
             ]
+
+@Client.on_callback_query()
+async def cbq(_, q):
+    
+    
