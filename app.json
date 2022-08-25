@@ -1,71 +1,8 @@
 {
   "name": "pyrogram based AFK bot !",
-  "description": "Afk bot with more features by @Timeisnotwaiting",
   "logo": "https://te.legra.ph/file/ac72a0208034b15f04c18.jpg",
-  "keywords": [
-    "telegram",
-    "bot",
-    "python",
-    "pyrogram"
-  ],
-    "buildpacks": [{
-    "url": "heroku/python"
-  }],
-  "formation": {
-    "worker": {
-      "quantity": 1,
-      "size": "free"
-    }
-  },
-  "addons": [
-      {
-         "options": {
-            "version": "12"
-         },
-         "plan": "heroku-postgresql"
-      }
-   ],
-  "repository": "https://github.com/theend-alpha/StringBot",
-  "env": {
-    "API_ID": {
-      "description": "Get this value from my.telegram.org.",
-      "required": true,
-      "value": ""
-    },
-    "API_HASH": {
-      "description": "Get this value from my.telegram.org.",
-      "required": true,
-      "value": ""
-    },
-    "BOT_TOKEN": {
-      "description": "Obtain a Telegram bot token by contacting @BotFather",
-      "required": true,
-      "value": ""
-    },
-    "MONGO_DB_URI": {
-      "description": "obtain from mongodb.com",
-      "required": true,
-      "value": ""
-    },
-    "SUDO_USER": {
-      "description": "Split if more than 1",
-      "required": true,
-      "value": ""
-    },
-    "OWNER_USERNAME": {
-      "description": "Enter the username of owner of bot !",
-      "required": false,
-      "value": ""
-    },
-    "START_IMG": {
-      "description": "Link of the image which displays when a user starts the bot..",
-      "required": false,
-      "value": ""
-    },
-    "NEW_CHAT_IMG": {
-      "description": "Link of the image displays when the bot is invited to a chat...",
-      "required": false,
-      "value": ""
-    }
-  }
-}
+  "description": "Afk bot with more features by @Timeisnotwaiting",
+  "keywords": ["music", "voicechat", "telegram", "fallen"],
+  "repository": "https://github.com/AnonymousR1025/FallenMusic",
+  "stack": "container",
+  "env": 
