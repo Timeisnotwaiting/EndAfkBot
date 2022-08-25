@@ -23,4 +23,13 @@ async def ib():
     try:
         await app.start()
         cli = await app.get_me()
-        
+        BOT_DET = []
+        BOT_DET.append(cli.username)
+        BOT_DET.append(cli.id)
+        print(f"@{cli.username} started successfully...")
+    except:
+        await app.start()
+        BOT_DET = ["EndAfkBot", 5561276442]
+        print(f"Bot started...")
+
+asyncio.run(ib())
