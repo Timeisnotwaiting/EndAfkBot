@@ -9,6 +9,8 @@ botid = None
 chid = None
 chill = None
 
+SP = "https://te.legra.ph/file/7637e88a7367abb6336d5.jpg"
+
 SETTINGS1 = [
             [IKB(" 🤵 Owner", url=f"t.me/{OWNER_USERNAME[1:]}"),
              IKB(" 🛠 Settings", callback_data="settings2"),
