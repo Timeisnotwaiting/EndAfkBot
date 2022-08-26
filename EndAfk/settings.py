@@ -1,5 +1,5 @@
 from pyrogram import Client, filters
-from pyrogram.types import Message, CallbackQuery, InlineKeyboardMarkup as IKM, InlineKeyboardButton as IKB, InputMediaPhoto as IMP
+from pyrogram.types import Message, CallbackQuery as q, InlineKeyboardMarkup as IKM, InlineKeyboardButton as IKB, InputMediaPhoto as IMP
 from .det import det
 from config import OWNER_USERNAME
 from .AlphaDB.cleanmode import *
@@ -68,7 +68,7 @@ SETTINGS2_D = [
             ]
 
 @Client.on_callback_query()
-async def cbq(_: Client, q: CallbackQuery, m: Message):
+async def cbq(_, q, m):
     global level
     global admins
     global chid
