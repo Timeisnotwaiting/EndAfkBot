@@ -15,11 +15,17 @@ SETTINGS1 = [
             ]
             ]
 
-async def get_admin_list(_, m):
-    ADMINS = []
-    async for member in _.iter_chat_members(m.chat.id, filter="administrators"):
-        ADMINS.append(member.user.id)
-        return ADMINS
+async def check_admin(_, m):
+    mem = await _.get_chat_member(m.chat.id, m.from_user.id)
+    if mem.can_delete_messages():
+        return True
+    return False
+
+async def check_cbq_admin(_, q):
+    mem = await _.get_chat_member(q.message.chat.id, q.from_user.id)
+    if mem.can_delete_messages():
+        return True
+    return False
         
 admins = None 
 
@@ -28,9 +34,7 @@ async def settings(_, m):
     global chid
     global chill
     global botid
-    global admins
     global level
-    admins = await get_admin_list(_, m)
     level = m.from_user.id
     chid = m.chat.id
     chill = m.chat.title
@@ -72,7 +76,7 @@ async def cbq(_, q):
     global chid
     global chill
     if q.data == "settings2":
-        if q.from_user.id != admins:
+        if not check_cbq_admin(_, q):
             return await q.answer("You must be admin of this group..!", show_alert=True)
         if await cme(chid):
             coded = f"<code>{chid}</code>"
@@ -83,15 +87,15 @@ async def cbq(_, q):
             med = IMP(SP, caption=TEXT_2.format(chill, coded))
             await _.edit_message_media(chat_id=q.message.chat.id, message_id=q.message.message_id, media = med, reply_markup=IKM(SETTINGS2_D))
     elif q.data == "toggle_disable":
-        if q.from_user.id != admins:
-            return await q.answer()
+        if not check_cbq_admin(_, q):
+            return await q.answer("You must be admin of this group..!", show_alert=True)
         await scd(chid)
         coded = f"<code>{chid}</code>"
         med = IMP(SP, caption=TEXT_2.format(chill, coded))
         await _.edit_message_media(chat_id=q.message.chat.id, message_id=q.message.message_id, media = med, reply_markup=IKM(SETTINGS2_D))
     elif q.data == "toggle_enable":
-        if q.from_user.id != admins:
-            return await q.answer()
+        if not check_cbq_admin(_, q):
+            return await q.answer("You must be admin of this group..!", show_alert=True)
         await sce(chid)
         coded = f"<code>{chid}</code>"
         med = IMP(SP, caption=TEXT_2.format(chill, coded))
