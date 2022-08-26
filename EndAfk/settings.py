@@ -84,10 +84,12 @@ async def cbq(_, q):
             coded = f"<code>{chid}</code>"
             med = IMP(SP, caption=TEXT_2.format(chill, coded))
             await _.edit_message_media(chat_id=q.message.chat.id, message_id=q.message.message_id, media = med, reply_markup=IKM(SETTINGS2_E))
+            await q.answer()
         else:
             coded = f"<code>{chid}</code>"
             med = IMP(SP, caption=TEXT_2.format(chill, coded))
             await _.edit_message_media(chat_id=q.message.chat.id, message_id=q.message.message_id, media = med, reply_markup=IKM(SETTINGS2_D))
+            await q.answer()
     elif q.data == "toggle_disable":
         if not await check_cbq_admin(_, q):
             return await q.answer("You must be admin of this group..!", show_alert=True)
@@ -95,6 +97,7 @@ async def cbq(_, q):
         coded = f"<code>{chid}</code>"
         med = IMP(SP, caption=TEXT_2.format(chill, coded))
         await _.edit_message_media(chat_id=q.message.chat.id, message_id=q.message.message_id, media = med, reply_markup=IKM(SETTINGS2_D))
+        await q.answer()
     elif q.data == "toggle_enable":
         if not await check_cbq_admin(_, q):
             return await q.answer("You must be admin of this group..!", show_alert=True)
@@ -102,8 +105,9 @@ async def cbq(_, q):
         coded = f"<code>{chid}</code>"
         med = IMP(SP, caption=TEXT_2.format(chill, coded))
         await _.edit_message_media(chat_id=q.message.chat.id, message_id=q.message.message_id, media = med, reply_markup=IKM(SETTINGS2_E))
+        await q.answer()
     elif q.data == "CM":
-        return await q.answer("Delete messages sent by bot after 5min, to keep the chat clean...", show_alert=True)
+        return await q.answer("if Enabled, Delete messages sent by bot after 5min, to keep the chat clean...", show_alert=True)
     
 
 @Client.on_message(group=6)
