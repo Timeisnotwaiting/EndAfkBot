@@ -77,25 +77,25 @@ async def cbq(_, q, m):
         if await cme(chid):
             coded = f"<code>{chid}</code>"
             med = IMP(SP, caption=TEXT_2.format(chill, coded))
-            await q.edit_message_media(media = med, reply_markup=IKM(SETTINGS2_E))
+            await _.edit_message_media(chat_id=q.message.chat.id, message_id=q.message.message_id, media = med, reply_markup=IKM(SETTINGS2_E))
         else:
             coded = f"<code>{chid}</code>"
             med = IMP(SP, caption=TEXT_2.format(chill, coded))
-            await q.edit_message_media(media = med, reply_markup=IKM(SETTINGS2_D))
+            await _.edit_message_media(chat_id=q.message.chat.id, message_id=q.message.message_id, media = med, reply_markup=IKM(SETTINGS2_D))
     elif q.data == "toggle_disable":
         if q.from_user.id != admins:
             return await q.answer()
         await scd(chid)
         coded = f"<code>{chid}</code>"
         med = IMP(SP, caption=TEXT_2.format(chill, coded))
-        await q.edit_message_media(media = med, reply_markup=IKM(SETTINGS2_D))
+        await _.edit_message_media(chat_id=q.message.chat.id, message_id=q.message.message_id, media = med, reply_markup=IKM(SETTINGS2_D))
     elif q.data == "toggle_enable":
         if q.from_user.id != admins:
             return await q.answer()
         await sce(chid)
         coded = f"<code>{chid}</code>"
         med = IMP(SP, caption=TEXT_2.format(chill, coded))
-        await q.edit_message_media(media = med, reply_markup=IKM(SETTINGS2_E))
+        await _.edit_message_media(chat_id=q.message.chat.id, message_id=q.message.message_id, media = med, reply_markup=IKM(SETTINGS2_E))
     elif q.data == "CM":
         return await q.answer("Delete messages sent by bot after 5min, to keep the chat clean...", show_alert=True)
     
