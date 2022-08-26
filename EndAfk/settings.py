@@ -66,7 +66,7 @@ SETTINGS2_D = [
             ]
 
 @Client.on_callback_query()
-async def cbq(_, q, m):
+async def cbq(_, q):
     global level
     global admins
     global chid
