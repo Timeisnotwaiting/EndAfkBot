@@ -19,13 +19,13 @@ SETTINGS1 = [
 
 async def check_admin(_, m):
     mem = await _.get_chat_member(m.chat.id, m.from_user.id)
-    if mem.can_delete_messages():
+    if mem.can_delete_messages:
         return True
     return False
 
 async def check_cbq_admin(_, q):
     mem = await _.get_chat_member(q.message.chat.id, q.from_user.id)
-    if mem.can_delete_messages():
+    if mem.can_delete_messages:
         return True
     return False
         
