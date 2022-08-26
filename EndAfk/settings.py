@@ -31,8 +31,6 @@ async def settings(_, m):
     global admins
     global level
     admins = await get_admin_list(_, m)
-    if not m.from_user.id in admins:
-        return 
     level = m.from_user.id
     chid = m.chat.id
     chill = m.chat.title
