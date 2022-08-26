@@ -78,7 +78,7 @@ async def cbq(_, q):
     global chid
     global chill
     if q.data == "settings2":
-        if not check_cbq_admin(_, q):
+        if not await check_cbq_admin(_, q):
             return await q.answer("You must be admin of this group..!", show_alert=True)
         if await cme(chid):
             coded = f"<code>{chid}</code>"
@@ -89,14 +89,14 @@ async def cbq(_, q):
             med = IMP(SP, caption=TEXT_2.format(chill, coded))
             await _.edit_message_media(chat_id=q.message.chat.id, message_id=q.message.message_id, media = med, reply_markup=IKM(SETTINGS2_D))
     elif q.data == "toggle_disable":
-        if not check_cbq_admin(_, q):
+        if not await check_cbq_admin(_, q):
             return await q.answer("You must be admin of this group..!", show_alert=True)
         await scd(chid)
         coded = f"<code>{chid}</code>"
         med = IMP(SP, caption=TEXT_2.format(chill, coded))
         await _.edit_message_media(chat_id=q.message.chat.id, message_id=q.message.message_id, media = med, reply_markup=IKM(SETTINGS2_D))
     elif q.data == "toggle_enable":
-        if not check_cbq_admin(_, q):
+        if not await check_cbq_admin(_, q):
             return await q.answer("You must be admin of this group..!", show_alert=True)
         await sce(chid)
         coded = f"<code>{chid}</code>"
