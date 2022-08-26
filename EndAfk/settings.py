@@ -73,7 +73,7 @@ async def cbq(_, q, m):
     global chill
     if q.data == "settings2":
         if q.from_user.id != admins:
-            return await q.answer()
+            return await q.answer("You must be admin of this group..!", show_alert=True)
         if await cme(chid):
             coded = f"<code>{chid}</code>"
             med = IMP(SP, caption=TEXT_2.format(chill, coded))
