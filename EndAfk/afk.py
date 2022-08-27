@@ -3,7 +3,7 @@ import random
 from pyrogram import filters, Client
 from pyrogram.types import Message
 from EndAfk import SUDOERS
-
+from .helpers import RANDOM
 from .det import det
 from EndAfk.AlphaDB import add_afk, is_afk, remove_afk
 from EndAfk.helpers import get_readable_time, put_cleanmode
@@ -27,8 +27,8 @@ async def active_afk(_, message: Message):
     smex = await det(_)
     botname = smex[2]
     botusername = smex[0]
-    send = await message.reply(
-       f"{message.from_user.first_name} is now away from keyboard ...!"
+    send = await message.reply_photo(random.choice(RANDOM),
+       caption=f"{message.from_user.first_name} is now away from keyboard ...!"
     )
     await put_cleanmode(message.chat.id, send.message_id)
 
