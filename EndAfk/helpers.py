@@ -2,7 +2,7 @@ import asyncio
 from pyrogram import Client
 from typing import Union
 from datetime import datetime, timedelta
-from EndAfk import cleanmode, app, botname
+from EndAfk import cleanmode, app
 from EndAfk.AlphaDB import is_cleanmode_on
 from pyrogram.errors import FloodWait
 from pyrogram.types import InlineKeyboardButton
@@ -100,7 +100,7 @@ RANDOM = [
 ]
 
 
-HELP_TEXT = f"""Welcome to {botname}'s Help Section.
+HELP_TEXT = """Welcome to {}'s Help Section.
 
 - When someone mentions you in a chat, the user will be notified you are AFK. You can even provide a reason for going AFK, which will be provided to the user as well.
 
