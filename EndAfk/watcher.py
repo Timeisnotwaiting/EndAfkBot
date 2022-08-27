@@ -16,13 +16,13 @@ chat_watcher_group = 1
 )
 async def chat_watcher_func(_, message):
     smex = await det(_)
-    botusername = smex[0]
+    botusername = smex[0].lower()
     if message.sender_chat:
         return
     userid = message.from_user.id
     user_name = message.from_user.first_name
     if message.entities:
-        possible = ["/afk", f"/afk@{botusername}"]
+        possible = ["/afk", f"/afk@{botusername}", "brb"]
         message_text = message.text or message.caption
         for entity in message.entities:
             if entity.type == "bot_command":
