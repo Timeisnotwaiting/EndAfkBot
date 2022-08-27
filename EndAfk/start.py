@@ -5,7 +5,7 @@ from pyrogram import filters, Client
 from pyrogram.types import Message
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.errors import MessageNotModified
-from config import START_IMG
+from config import START_IMG, OWNER_USERNAME
 from EndAfk.AlphaDB.blocked import is_blocked
 from EndAfk.AlphaDB.cleanmode import cleanmode_off, cleanmode_on, is_cleanmode_on
 from .helpers import get_readable_time, put_cleanmode, settings_markup, RANDOM, HELP_TEXT
