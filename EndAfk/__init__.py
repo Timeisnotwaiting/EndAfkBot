@@ -14,7 +14,9 @@ db = mongo.AFK
 
 get_ent = asyncio.run(det(Client))
 
-botname = get_ent[0]
+botname = get_ent[2]
+
+botusername = get_ent[0]
 
 botid = get_ent[1]
 
