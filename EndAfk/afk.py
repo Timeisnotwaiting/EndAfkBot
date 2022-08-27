@@ -9,10 +9,11 @@ from EndAfk.AlphaDB import add_afk, is_afk, remove_afk
 from EndAfk.helpers import get_readable_time, put_cleanmode
 from EndAfk.AlphaDB import is_blocked
 
-
+botusername = None
 
 @Client.on_message(filters.command(["afk", f"afk@{botusername}"]))
 async def active_afk(_, message: Message):
+    global botusername
     blocked = await is_blocked(message.from_user.id)
     if blocked:
         return
