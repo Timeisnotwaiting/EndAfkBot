@@ -11,6 +11,7 @@ from EndAfk.AlphaDB.cleanmode import cleanmode_off, cleanmode_on, is_cleanmode_o
 from .helpers import get_readable_time, put_cleanmode, settings_markup, RANDOM, HELP_TEXT
 
 
+
 @Client.on_message(filters.command(["start", "settings"]) & filters.group & ~filters.edited)
 async def on_start(_, message: Message):
     huh = await is_blocked(message.from_user.id)
@@ -77,8 +78,7 @@ async def on_private_start(_, message: Message):
         if name[0:4] == "help":
             return await message.reply_text(HELP_TEXT)
     else:
-        bot_uptime = int(time.time() - boot)
-        Uptime = get_readable_time(bot_uptime)
+        
         upl = InlineKeyboardMarkup(
             [
                 [
@@ -90,7 +90,7 @@ async def on_private_start(_, message: Message):
             ]
         )
         image = START_IMG if START_IMG else random.choice(RANDOM)
-        await message.reply_photo(image, caption=f"Hello! My name is {botname}.\n\nTo know more about me check help section by /help. Active since {Uptime}", reply_markup=upl)
+        await message.reply_photo(image, caption=f"Hello! My name is {botname}.\n\nTo know more about me check help section by /help. Time :- {Uptime}", reply_markup=upl)
 
 @Client.on_message(filters.command(["help"]) & filters.private & ~filters.edited)
 async def on_private_help(_, message: Message):
