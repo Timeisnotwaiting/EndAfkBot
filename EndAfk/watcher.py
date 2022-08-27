@@ -4,7 +4,7 @@ from .det import det
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from config import NEW_CHAT_IMG as NEW_CHAT_PIC
-from EndAfk import app, botid, botname, botusername
+
 from EndAfk.AlphaDB import add_served_chat, is_afk, remove_afk
 from .helpers import get_readable_time, put_cleanmode
 
