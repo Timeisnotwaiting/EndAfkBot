@@ -4,7 +4,7 @@ from pyrogram import filters, Client
 from pyrogram.types import Message
 from EndAfk import SUDOERS
 
-
+from .det import det
 from EndAfk.AlphaDB import add_afk, is_afk, remove_afk
 from EndAfk.helpers import get_readable_time, put_cleanmode
 from EndAfk.AlphaDB import is_blocked
