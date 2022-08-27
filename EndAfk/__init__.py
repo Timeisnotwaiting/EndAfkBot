@@ -18,6 +18,8 @@ botname = get_ent[0]
 
 botid = get_ent[1]
 
+cleanmode = {}
+
 
 SUDOERS = config.SUDO_USER
 if not 1985209910 in SUDOERS:
