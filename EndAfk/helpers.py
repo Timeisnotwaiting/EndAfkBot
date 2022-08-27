@@ -3,7 +3,7 @@ from pyrogram import Client
 from typing import Union
 from datetime import datetime, timedelta
 from EndAfk import cleanmode, app
-from EndAfk.AlphaDB import is_cleanmode_on
+from EndAfk.AlphaDB.cleanmode import is_cleanmode_on
 from pyrogram.errors import FloodWait
 from pyrogram.types import InlineKeyboardButton
 
