@@ -1,5 +1,5 @@
 import asyncio
-
+from pyrogram import Client
 from typing import Union
 from datetime import datetime, timedelta
 from EndAfk import cleanmode, app, botname
@@ -52,7 +52,7 @@ async def auto_clean():
                 for x in cleanmode[chat_id]:
                     if datetime.now() > x["timer_after"]:
                         try:
-                            await app.delete_messages(chat_id, x["msg_id"])
+                            await Client.delete_messages(chat_id, x["msg_id"])
                         except FloodWait as e:
                             await asyncio.sleep(e.x)
                         except:
