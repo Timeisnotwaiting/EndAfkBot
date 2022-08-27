@@ -22,7 +22,7 @@ async def on_settings_button(client, CallbackQuery):
 
 @Client.on_callback_query(filters.regex("CLEANMODE"))
 async def on_cleanmode_change(client, CallbackQuery):
-    admin = await app.get_chat_member(CallbackQuery.message.chat.id, CallbackQuery.from_user.id)
+    admin = await client.get_chat_member(CallbackQuery.message.chat.id, CallbackQuery.from_user.id)
     if admin.status in ["creator", "administrator"]:
         pass
     else:
