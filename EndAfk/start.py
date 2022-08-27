@@ -94,4 +94,8 @@ async def on_private_start(_, message: Message):
 
 @Client.on_message(filters.command(["help"]) & filters.private & ~filters.edited)
 async def on_private_help(_, message: Message):
-    return await message.reply_text(HELP_TEXT)
+    smex = await det(_)
+    botname = smex[2]
+    botid = smex[1]
+    botusername = smex[0]
+    return await message.reply_text(HELP_TEXT.format(botname))
