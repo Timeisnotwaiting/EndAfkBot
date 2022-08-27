@@ -1,5 +1,5 @@
 from pyrogram import Client, filters
-from pyrogram.types import CallbackQuery
+from pyrogram.types import CallbackQuery, InlineKeyboardMarkup
 from EndAfk.AlphaDB.cleanmode import *
 from pyrogram.errors import *
 from .helpers import settings_markup
