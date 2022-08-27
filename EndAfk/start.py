@@ -21,8 +21,8 @@ async def on_start(_, message: Message):
     botname = smex[2]
     botid = smex[1]
     botusername = smex[0]
-    bot_uptime = int(time.time() - boot)
-    Uptime = get_readable_time(bot_uptime)
+    now = datetime.now()
+    Uptime = now.strftime("%H:%M:%S")
     upl = InlineKeyboardMarkup(
         [
             [
