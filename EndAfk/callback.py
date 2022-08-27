@@ -1,6 +1,7 @@
 from pyrogram import Client, filters
 from pyrogram.types import CallbackQuery
 from EndAfk.AlphaDB.cleanmode import *
+from pyrogram.errors import *
 
 @Client.on_callback_query(filters.regex("close"))
 async def on_close_button(client, CallbackQuery):
