@@ -1,6 +1,6 @@
 import time
 import random
-
+from .det import det
 from pyrogram import filters, Client
 from pyrogram.types import Message
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
