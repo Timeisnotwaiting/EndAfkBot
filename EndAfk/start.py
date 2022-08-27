@@ -79,7 +79,7 @@ async def on_private_start(_, message: Message):
             return await message.reply_text(HELP_TEXT)
     else:
         now = datetime.now()
-        Uptime = now.strftime("%H:%M:%S"
+        Uptime = now.strftime("%H:%M:%S")
         upl = InlineKeyboardMarkup(
             [
                 [
