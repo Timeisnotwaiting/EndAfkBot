@@ -1,7 +1,7 @@
 import asyncio
 import time
 from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
-from .det import det
+
 from pyrogram import Client
 
 import config
@@ -12,13 +12,6 @@ boot = time.time()
 mongo = MongoClient(config.MONGO_DB_URI)
 db = mongo.AFK
 
-get_ent = asyncio.run(det(Client))
-
-botname = get_ent[2]
-
-botusername = get_ent[0]
-
-botid = get_ent[1]
 
 cleanmode = {}
 
