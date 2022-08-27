@@ -11,7 +11,7 @@ from EndAfk.AlphaDB import is_blocked
 
 botusername = None
 
-@Client.on_message(filters.command(["afk", f"afk@{botusername}"]))
+@Client.on_message(filters.command(["afk", f"afk@{botusername}", "brb"]))
 async def active_afk(_, message: Message):
     global botusername
     blocked = await is_blocked(message.from_user.id)
