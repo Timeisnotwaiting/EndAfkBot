@@ -1,47 +1,76 @@
 import time
-from .help import help
-from pyrogram import filters, Client
-from pyrogram.types import Message, InlineKeyboardButton as IKB, InlineKeyboardMarkup as IKM
-from config import OWNER_USERNAME, START_IMG
-from EndAfk import app, boot, botname
-from EndAfk.helpers import get_readable_time
-from EndAfk import SUDOERS
-from EndAfk.AlphaDB import is_blocked
-from .det import det
+import random
+
+from pyrogram import filters
+from pyrogram.types import Message
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from pyrogram.errors import MessageNotModified
+from config import START_IMG
+from EndAfk import app, boot, botname, botusername
+from EndAfk.AlphaDB.cleanmode import cleanmode_off, cleanmode_on, is_cleanmode_on
+from .helpers import get_readable_time, put_cleanmode, settings_markup, RANDOM, HELP_TEXT
 
 
-alpha = START_IMG if START_IMG else "https://te.legra.ph/file/6969473800d2a8796cfd1.jpg"
-
-photo = "https://te.legra.ph/file/834b1444f48d090886fef.jpg"
-
-@Client.on_message(filters.command("start"))
-async def start(_, message: Message):
-    blocked = await is_blocked(message.from_user.id)
-    if blocked:
-        return await message.reply(f"you've been blocked try: ask {OWNER_USERNAME}")
-    d = await det(_)
-    name = (await _.get_users(d[1])).first_name
-
-    START_MARKUP = [
-    [
-    IKB("➕ Add to your chat ➕", url=f"t.me/{d[0]}?startgroup=true")
-    ]
-    ]
-
-    await message.reply_photo(alpha,
-       caption=f"""Hello! My name is {name}.
-
-To know more about me check help section by /help.""", reply_markup=IKM(START_MARKUP))
-
-
-@Client.on_message(filters.command("ping") & filters.user(SUDOERS))
-async def ping(_, message: Message):
+@Client.on_message(filters.command(["start", "settings"]) & filters.group & ~filters.edited)
+async def on_start(_, message: Message):
     bot_uptime = int(time.time() - boot)
     Uptime = get_readable_time(bot_uptime)
-    await _.send_message(
-       message.chat.id,
-       f"End is alive. \n\n Uptime - {Uptime}")
+    upl = InlineKeyboardMarkup(
+        [
+            [
+                InlineKeyboardButton(
+                    text="📜 Help Section",
+                    url=f"https://t.me/{botusername}?start=help",
+                ),
+                InlineKeyboardButton(
+                    text="🔧 Settings",
+                    callback_data="settings_callback",
+                ),
+            ]
+        ]
+    )
+    image = random.choice(RANDOM)
+    send = await message.reply_photo(image, caption=f"Hello! My name is {botname}.\n\nTo know more about me check help section. Active since {Uptime}", reply_markup=upl)
+    await put_cleanmode(message.chat.id, send.message_id)
+    
 
-@Client.on_message(filters.command("help"))
-async def _help(_, m):
-    await help(_, m)
+@Client.on_message(filters.command(["help"]) & filters.group & ~filters.edited)
+async def on_help(_, message: Message):
+    upl = InlineKeyboardMarkup(
+        [
+            [
+                InlineKeyboardButton(
+                    text="📜 Help Section",
+                    url=f"https://t.me/{botusername}?start=help",
+                ),
+            ]
+        ]
+    )
+    send = await message.reply_text("Contact me in PM for help.", reply_markup=upl)
+    await put_cleanmode(message.chat.id, send.message_id)
+
+@Client.on_message(filters.command(["start"]) & filters.private & ~filters.edited)
+async def on_private_start(_, message: Message):
+    if len(message.text.split()) > 1:
+        name = message.text.split(None, 1)[1]
+        if name[0:4] == "help":
+            return await message.reply_text(HELP_TEXT)
+    else:
+        bot_uptime = int(time.time() - boot)
+        Uptime = get_readable_time(bot_uptime)
+        upl = InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        text="➕ Add me to a Group",
+                        url=f"https://t.me/{botusername}?startgroup=true",
+                    ),
+                ]
+            ]
+        )
+        image = START_IMG if START_IMG else random.choice(RANDOM)
+        await message.reply_photo(image, caption=f"Hello! My name is {botname}.\n\nTo know more about me check help section by /help. Active since {Uptime}", reply_markup=upl)
+
+@Client.on_message(filters.command(["help"]) & filters.private & ~filters.edited)
+async def on_private_help(_, message: Message):
+    return await message.reply_text(HELP_TEXT)
