@@ -96,7 +96,7 @@ async def cbq(_, q):
         await scd(chid)
         coded = f"<code>{q.message.chat.id}</code>"
         med = IMP(SP, caption=TEXT_2.format(q.message.chat.title, coded))
-        await _.edit_message_media(chat_id=q.message.chat.id, message_id=q.message.message_id, media = med, reply_markup=IKM(SETTINGS2_D))
+        await _.edit_message_reply_markup(chat_id=q.message.chat.id, message_id=q.message.message_id, reply_markup=IKM(SETTINGS2_D))
         await q.answer()
     elif q.data == "toggle_enable":
         if not await check_cbq_admin(_, q):
@@ -104,7 +104,7 @@ async def cbq(_, q):
         await sce(chid)
         coded = f"<code>{q.message.chat.id}</code>"
         med = IMP(SP, caption=TEXT_2.format(q.message.chat.title, coded))
-        await _.edit_message_media(chat_id=q.message.chat.id, message_id=q.message.message_id, media = med, reply_markup=IKM(SETTINGS2_E))
+        await _.edit_message_reply_markup(chat_id=q.message.chat.id, message_id=q.message.message_id, reply_markup=IKM(SETTINGS2_E))
         await q.answer()
     elif q.data == "CM":
         return await q.answer("⁉️ What is This?\n\nWhen activated, Bot will delete its message after 5 Mins to make your chat clean and clear.", show_alert=True)
