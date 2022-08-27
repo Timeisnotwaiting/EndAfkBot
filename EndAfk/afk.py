@@ -4,14 +4,14 @@ from pyrogram import filters, Client
 from pyrogram.types import Message
 from EndAfk import SUDOERS
 
-from EndAfk import app, botname
+from EndAfk import app, botname, botusername
 from EndAfk.AlphaDB import add_afk, is_afk, remove_afk
-from EndAfk.helpers import get_readable_time
+from EndAfk.helpers import get_readable_time, put_cleanmode
 from EndAfk.AlphaDB import is_blocked
 
 
 
-@Client.on_message(filters.command(["afk"]))
+@Client.on_message(filters.command(["afk", f"afk@{botusername}"]))
 async def active_afk(_, message: Message):
     blocked = await is_blocked(message.from_user.id)
     if blocked:
@@ -23,9 +23,10 @@ async def active_afk(_, message: Message):
         await message.delete()
     except:
         pass
-    await message.reply(
+    send = await message.reply(
        f"{message.from_user.first_name} is now away from keyboard ...!"
     )
+    await put_cleanmode(message.chat.id, send.message_id)
 
     verifier, reasondb = await is_afk(user_id)
     if verifier:
