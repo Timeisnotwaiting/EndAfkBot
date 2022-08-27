@@ -15,6 +15,8 @@ chat_watcher_group = 1
     group=chat_watcher_group,
 )
 async def chat_watcher_func(_, message):
+    smex = await det(_)
+    botusername = smex[0]
     if message.sender_chat:
         return
     userid = message.from_user.id
