@@ -4,7 +4,7 @@ from pyrogram import filters, Client
 from pyrogram.types import Message
 from EndAfk import SUDOERS
 
-from EndAfk import app, botname, botusername
+
 from EndAfk.AlphaDB import add_afk, is_afk, remove_afk
 from EndAfk.helpers import get_readable_time, put_cleanmode
 from EndAfk.AlphaDB import is_blocked
@@ -23,6 +23,9 @@ async def active_afk(_, message: Message):
         await message.delete()
     except:
         pass
+    smex = await det(_)
+    botname = smex[2]
+    botusername = smex[0]
     send = await message.reply(
        f"{message.from_user.first_name} is now away from keyboard ...!"
     )
