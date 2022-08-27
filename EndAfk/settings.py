@@ -107,7 +107,7 @@ async def cbq(_, q):
         await _.edit_message_media(chat_id=q.message.chat.id, message_id=q.message.message_id, media = med, reply_markup=IKM(SETTINGS2_E))
         await q.answer()
     elif q.data == "CM":
-        return await q.answer("if Enabled, Delete messages sent by bot after 5min, to keep the chat clean...", show_alert=True)
+        return await q.answer("⁉️ What is This?\n\nWhen activated, Bot will delete its message after 5 Mins to make your chat clean and clear.", show_alert=True)
     
 
 @Client.on_message(group=6)
