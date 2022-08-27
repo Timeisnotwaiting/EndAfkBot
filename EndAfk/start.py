@@ -6,13 +6,17 @@ from pyrogram.types import Message
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.errors import MessageNotModified
 from config import START_IMG
-from EndAfk import app, boot, botname, botusername
+
 from EndAfk.AlphaDB.cleanmode import cleanmode_off, cleanmode_on, is_cleanmode_on
 from .helpers import get_readable_time, put_cleanmode, settings_markup, RANDOM, HELP_TEXT
 
 
 @Client.on_message(filters.command(["start", "settings"]) & filters.group & ~filters.edited)
 async def on_start(_, message: Message):
+    smex = await det(_)
+    botname = smex[2]
+    botid = smex[1]
+    botusername = smex[0]
     bot_uptime = int(time.time() - boot)
     Uptime = get_readable_time(bot_uptime)
     upl = InlineKeyboardMarkup(
@@ -36,6 +40,10 @@ async def on_start(_, message: Message):
 
 @Client.on_message(filters.command(["help"]) & filters.group & ~filters.edited)
 async def on_help(_, message: Message):
+    smex = await det(_)
+    botname = smex[2]
+    botid = smex[1]
+    botusername = smex[0]
     upl = InlineKeyboardMarkup(
         [
             [
@@ -51,6 +59,10 @@ async def on_help(_, message: Message):
 
 @Client.on_message(filters.command(["start"]) & filters.private & ~filters.edited)
 async def on_private_start(_, message: Message):
+    smex = await det(_)
+    botname = smex[2]
+    botid = smex[1]
+    botusername = smex[0]
     if len(message.text.split()) > 1:
         name = message.text.split(None, 1)[1]
         if name[0:4] == "help":
