@@ -9,7 +9,7 @@ from config import START_IMG, OWNER_USERNAME
 from EndAfk.AlphaDB.blocked import is_blocked
 from EndAfk.AlphaDB.cleanmode import cleanmode_off, cleanmode_on, is_cleanmode_on
 from .helpers import get_readable_time, put_cleanmode, settings_markup, RANDOM, HELP_TEXT
-
+from datetime import datetime
 
 
 @Client.on_message(filters.command(["start", "settings"]) & filters.group & ~filters.edited)
@@ -78,7 +78,8 @@ async def on_private_start(_, message: Message):
         if name[0:4] == "help":
             return await message.reply_text(HELP_TEXT)
     else:
-        
+        now = datetime.now()
+        Uptime = now.strftime("%H:%M:%S"
         upl = InlineKeyboardMarkup(
             [
                 [
