@@ -25,7 +25,7 @@ async def check_admin(_, m):
 
 async def check_cbq_admin(_, q):
     mem = await _.get_chat_member(q.message.chat.id, q.from_user.id)
-    if mem.can_delete_messages:
+    if mem.status in ["creator", "administrator"]:
         return True
     return False
         
